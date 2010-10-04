@@ -1,0 +1,6 @@
+This contains files that can be used to build a TMS of Ordnance Survey raster data using TileCache and MapServer. Full instructions at http://andrewl.net/map/ordnance-survey-rasters-mapserver-tilecache
+
+The files contained within are
+- prepare_data.sh. Shell script to decompress and move files and create tile index shapefiles.
+- os.map MapServer configuration file
+- tilecache.cfg.fragment TileCache configuration for a fixed set of zoom levels for use with the MapServer configuration.
