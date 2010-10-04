@@ -1,0 +1,7 @@
+[os]
+type=WMS
+url=https://192.168.1.1/cgi-bin/mapserv?map=/var/www/os.map&
+extension=png
+srs=EPSG:27700
+bbox=0,0,700000,1300000
+resolutions=1000,200,100,50,25,12.5,5,2.5,1

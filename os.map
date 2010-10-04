@@ -1,0 +1,76 @@
+MAP
+  NAME "Ordnance Survey"
+  STATUS ON
+  SIZE 600 400
+  EXTENT 0 0 700000 1300000
+  UNITS METERS
+  SHAPEPATH "/var/data/os"
+  IMAGECOLOR 255 255 255
+	IMAGETYPE PNG
+	PROJECTION
+	   "init=epsg:27700"
+	END
+
+  #web interface defintion
+  WEB
+    IMAGEPATH "/var/www/ms_tmp/"
+    IMAGEURL "ms_tmp/"
+    METADATA
+	    "wms_title"           "WMS Server"
+	    "wms_onlineresource"  "https://192.168.1.1/cgi-bin/mapserv?map=/var/www/os.map&"
+	    "wms_srs"             "EPSG:27700"
+		END
+  END
+
+  #Start of layer definitions
+  LAYER
+		METADATA
+			wms_title 'MiniScale'
+		END
+		NAME   "MiniScale"
+		TILEINDEX "MiniScale.shp"
+		TILEITEM "Location"
+		STATUS       ON
+		TYPE         RASTER
+		MINSCALEDENOM 250000
+	END # layer
+	
+  LAYER
+ 		METADATA
+ 			wms_title '250k'
+ 		END
+	    NAME   "250k"
+ 		TILEINDEX "1_250000_scale_raster.shp"
+ 		TILEITEM "Location"
+	    STATUS       ON
+	    TYPE         RASTER
+ 		MAXSCALEDENOM	250000
+ 		MINSCALEDENOM	25000
+ 	END # layer
+
+  LAYER
+ 		METADATA
+ 			wms_title 'vmd'
+ 		END
+	    NAME   "vmd"
+ 		TILEINDEX "vmd.shp"
+ 		TILEITEM "Location"
+	    STATUS       ON
+	    TYPE         RASTER
+ 		MAXSCALEDENOM	25000
+ 		MINSCALEDENOM	5000
+ 	END # layer
+
+  LAYER
+    METADATA
+      wms_title 'streetview'
+    END
+ 	  NAME   "streetview"
+ 		TILEINDEX "streetview.shp"
+ 		TILEITEM "Location"
+ 	  STATUS       ON
+ 	 	TYPE         RASTER
+ 		MAXSCALEDENOM	5000
+  END # layer
+
+END
